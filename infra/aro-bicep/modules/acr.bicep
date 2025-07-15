@@ -1,7 +1,7 @@
 @minLength(5)
 @maxLength(37)
 @description('Provide a base name for your Azure Container Registry')
-param acrName string
+param acrName string = 'petclinicaroacr'
 
 @description('Provide a location for the registry.')
 param location string
