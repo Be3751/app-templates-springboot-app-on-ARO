@@ -16,7 +16,6 @@ name: routeTableName
           addressPrefix: routeTableAddressPrefix
           nextHopType: routeTableNextHopType
           nextHopIpAddress: fwPrivateIP
-          hasBgpOverride: false
         }
       }
     ]
