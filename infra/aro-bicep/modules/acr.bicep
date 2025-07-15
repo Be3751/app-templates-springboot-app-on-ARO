@@ -1,6 +1,6 @@
 @minLength(5)
-@maxLength(50)
-@description('Provide a globally unique name of your Azure Container Registry')
+@maxLength(37)
+@description('Provide a base name for your Azure Container Registry')
 param acrName string
 
 @description('Provide a location for the registry.')
@@ -9,8 +9,12 @@ param location string
 @description('Provide a tier of your Azure Container Registry.')
 param acrSku string
 
+// Generate a unique suffix if none provided
+var uniqueSuffix = uniqueString(resourceGroup().id, acrName)
+var finalAcrName = '${acrName}${uniqueSuffix}'
+
 resource acrResource 'Microsoft.ContainerRegistry/registries@2021-06-01-preview' = {
-  name: acrName
+  name: finalAcrName
   location: location
   sku: {
     name: acrSku
