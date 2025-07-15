@@ -219,7 +219,7 @@ jobs:
         template: ./infra/aro-bicep/modules/acr.bicep
         parameters: >
           ./infra/aro-bicep/action_params/acr.parameters.json
-          acrName="${{ env.ACR_NAME }}"
+          acrName="petclinicaroacr"
           location="${{ env.LOCATION }}"
           acrSku="Basic"
         deploymentName: acr-github-actions
