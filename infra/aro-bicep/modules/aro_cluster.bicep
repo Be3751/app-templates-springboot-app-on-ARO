@@ -22,6 +22,7 @@ param computeVmDiskSize int
 param computeNodeCount int
 param apiServerVisibility string
 param ingressVisibility string
+param outboundType string
 param spokeVnetName string
 param controlPlaneVnetName string
 param computeVnetName string
@@ -60,7 +61,7 @@ resource role_for_rpObjectId 'Microsoft.Authorization/roleAssignments@2018-09-01
   ]
 }
 
-resource aro 'Microsoft.RedHatOpenShift/openShiftClusters@2020-04-30' = {
+resource aro 'Microsoft.RedHatOpenShift/openShiftClusters@2023-04-01' = {
   name: clusterName
   location: location
   tags: tags
@@ -74,6 +75,7 @@ resource aro 'Microsoft.RedHatOpenShift/openShiftClusters@2020-04-30' = {
     networkProfile: {
       podCidr: podCidr
       serviceCidr: serviceCidr
+      outboundType: outboundType
     }
     servicePrincipalProfile: {
       clientId: aadClientId

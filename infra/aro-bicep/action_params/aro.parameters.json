@@ -50,6 +50,9 @@
     "ingressVisibility": {
       "value": "Private"
     },
+    "outboundType": {
+      "value": "UserDefinedRouting"
+    },
     "computeNodeCount": {
       "value": 3
     },
